@@ -7,7 +7,11 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
-    <bean id="musicBean1"
+    <bean id="musicBean"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          scope="prototype"
+          factory-method="getClassicalMusic"
           class="ru.alishev.springcourse.ClassicalMusic">
     </bean>
     <bean id="musicBean2"
@@ -16,16 +20,16 @@
     <bean id="musicBean3"
           class="ru.alishev.springcourse.RockMusic">
     </bean>
-    <bean id="musicPlayerBean"
-          class="ru.alishev.springcourse.MusicPlayer">
-        <property name="musicList">
-            <list value-type="ru.alishev.springcourse.Music">
-                <ref bean="musicBean1"/>
-                <ref bean="musicBean2"/>
-                <ref bean="musicBean3"/>
-            </list>
-        </property>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+<!--    <bean id="musicPlayerBean" scope="prototype"-->
+<!--          class="ru.alishev.springcourse.MusicPlayer">-->
+<!--        <property name="musicList">-->
+<!--            <list value-type="ru.alishev.springcourse.Music">-->
+<!--                <ref bean="musicBean1"/>-->
+<!--                <ref bean="musicBean2"/>-->
+<!--                <ref bean="musicBean3"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="name" value="${musicPlayer.name}"/>-->
+<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+<!--    </bean>-->
 </beans>
