@@ -1,20 +1,20 @@
 package ru.alishev.springcourse;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+//import javax.annotation.PostConstruct;
+//import javax.annotation.PreDestroy;
 
 /**
  * @author Neil Alishev
  */
 public class ClassicalMusic implements Music {
 
-    @PostConstruct
+//    @PostConstruct
     public void doMyInit() {
         System.out.println("Doing my initialization");
     }
 
     // Для Prototype бинов не вызывается destroy-метод!
-    @PreDestroy
+//    @PreDestroy
     public void doMyDestroy() {
         System.out.println("Doing my destruction");
     }
