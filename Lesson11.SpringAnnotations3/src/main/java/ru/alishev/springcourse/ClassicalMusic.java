@@ -7,8 +7,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ClassicalMusic implements Music {
+    String[] songs = {"Hungarian Rhapsody", "Ave Maria", "Flight of the Bumblebee"};
     @Override
-    public String getSong() {
-        return "Hungarian Rhapsody";
+    public String[] getSongs() {
+        return songs;
     }
 }
